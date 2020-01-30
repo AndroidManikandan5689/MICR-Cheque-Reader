@@ -1,0 +1,14 @@
+{
+  "name": "MicrReaderPlugin",
+  "version": "0.0.1",
+  "description": "Micr code reader using tesseract for cordova plugin",
+  "cordova": {
+    "id": "cordova-plugin-micrreader",
+    "platforms": []
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Manikandan.K",
+  "license": "ISC"
+}

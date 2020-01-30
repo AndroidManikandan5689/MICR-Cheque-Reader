@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-micrreader" version="0.0.1">
+   <name>MicrReaderPlugin</name>   
+    <engines>
+        <engine name="cordova-android" version=">=3.6.0" />
+        <!-- Requires CordovaPlugin.preferences -->
+    </engines>
+   <js-module name="MicrReaderPlugin" src="www/MicrReaderPlugin.js">
+      <clobbers target="MicrReaderPlugin" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="MicrReaderPlugin">
+            <param name="android-package" value="cordova.plugin.micrreader.MicrReaderPlugin" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+	          <!-- <asset src="tessdata" target="tessdata" /> -->
+        <framework src="com.rmtheis:tess-two:9.0.0" />
+       <!-- <source-file src="src/android/TesseractPlugin.java" target-dir="src/com/tesseract/phonegap" /> -->
+      <source-file src="src/android/MicrReaderPlugin.java" target-dir="src/cordova-plugin-micrreader/MicrReaderPlugin" />
+   </platform>
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="MicrReaderPlugin">
+            <param name="ios-package" value="MicrReaderPlugin" />
+                <param name="onload" value="true" />
+         </feature>
+      </config-file>
+        <header-file src="src/ios/claseAuxiliar.h" />
+        <source-file src="src/ios/claseAuxiliar.mm" />
+      <source-file src="src/ios/MicrReaderPlugin.m" />
+        <header-file src="src/ios/TesseractPlugin.h" />
+        <!-- set the tessdata directory as a resource so it can go with the app -->
+        <resource-file src="tessdata" />
+   </platform>
+</plugin>
